@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const availableTickets = document.getElementById("available-tickets");
     const buyTicketBtn = document.getElementById("buy-ticket-btn");
   
-    let movies = []; // To store the movie data
+    // To store the movie data
+    let movies = []; 
   
     // Fetch movie data and populate the movie list
     fetch("http://localhost:3000/films")
