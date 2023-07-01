@@ -55,6 +55,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   
-   
+    // Function to display a success message after ticket purchase
+    function displaySuccessMessage() {
+      const successMessage = document.createElement("p");
+      successMessage.textContent = "Ticket purchased successfully!";
+      successMessage.classList.add("success-message");
+      availableTickets.parentNode.appendChild(successMessage);
+      setTimeout(() => {
+        successMessage.remove();
+      }, 3000);
+    }
   });
   
