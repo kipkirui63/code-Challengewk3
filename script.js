@@ -31,7 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   
- 
+    // Function to display movie details on the right side of the page
+    function displayMovieDetails(movie) {
+      poster.src = movie.poster;
+      title.textContent = movie.title;
+      runtime.textContent = `Runtime: ${movie.runtime} minutes`;
+      showtime.textContent = `Showtime: ${movie.showtime}`;
+      const availableTicketsCount = movie.capacity - movie.tickets_sold;
+      availableTickets.textContent = `Available Tickets: ${availableTicketsCount}`;
+      buyTicketBtn.disabled = availableTicketsCount === 0;
+      buyTicketBtn.addEventListener("click", () => buyTicket(movie));
+    }
   
  
   
