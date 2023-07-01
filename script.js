@@ -43,7 +43,17 @@ document.addEventListener("DOMContentLoaded", () => {
       buyTicketBtn.addEventListener("click", () => buyTicket(movie));
     }
   
- 
+    // Function to handle ticket purchase
+    function buyTicket(movie) {
+      const availableTicketsCount = movie.capacity - movie.tickets_sold;
+      if (availableTicketsCount > 0) {
+        movie.tickets_sold += 1; // Update the tickets_sold count
+        const updatedTicketsCount = availableTicketsCount - 1;
+        availableTickets.textContent = `Available Tickets: ${updatedTicketsCount}`;
+        buyTicketBtn.disabled = updatedTicketsCount === 0;
+        displaySuccessMessage();
+      }
+    }
   
    
   });
