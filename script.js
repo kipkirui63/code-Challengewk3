@@ -7,8 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const availableTickets = document.getElementById("available-tickets");
     const buyTicketBtn = document.getElementById("buy-ticket-btn");
   
-    // To store the movie data
-    let movies = []; 
+    let movies = []; // To store the movie data
   
     // Fetch movie data and populate the movie list
     fetch("http://localhost:3000/films")
@@ -20,7 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .catch((error) => console.error("Error fetching movie data:", error));
   
-   
+    // Function to populate the movie list on the left side of the page
+    function populateMovieList(movies) {
+      filmsList.innerHTML = "";
+      movies.forEach((movie) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = movie.title;
+        listItem.classList.add("film", "item");
+        listItem.addEventListener("click", () => displayMovieDetails(movie));
+        filmsList.appendChild(listItem);
+      });
+    }
   
  
   
